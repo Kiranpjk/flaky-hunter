@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.028" timestamp="2026-11-23T00:50:37.325556+01:00" hostname="vm"><testcase classname="examples.demo_suite.test_checkout" name="test_cart_total" time="0.000" /><testcase classname="examples.demo_suite.test_checkout" name="test_empty_cart" time="0.000" /><testcase classname="examples.demo_suite.test_checkout" name="test_payment_timeout" time="0.000"><failure message="AssertionError: payment API answered after 1122 ms (limit 1000)&#10;assert 1122.0461882888658 &lt; 1000">def test_payment_timeout():
+        # Simulates a race with a slow payment sandbox: the response sometimes arrives too late.
+        response_ms = rng.gauss(800, 250)
+&gt;       assert response_ms &lt; 1000, f"payment API answered after {response_ms:.0f} ms (limit 1000)"
+E       AssertionError: payment API answered after 1122 ms (limit 1000)
+E       assert 1122.0461882888658 &lt; 1000
+
+demo_suite/test_checkout.py:27: AssertionError</failure></testcase><testcase classname="examples.demo_suite.test_checkout" name="test_order_ids_unique" time="0.000" /><testcase classname="examples.demo_suite.test_checkout" name="test_currency_format_de" time="0.000" /></testsuite></testsuites>
